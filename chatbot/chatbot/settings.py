@@ -15,10 +15,16 @@ SECRET_KEY = 'django-insecure-57!f)u+cr@m1wy+*)14yjg0z%_e-0u5=@u&%deg__cpzai0vjg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "ai-chatbot-ri1l.onrender.com",
-    "localhost",
-    "127.0.0.1"
+# ALLOWED_HOSTS = [
+#     "https://ai-chatbot-support.netlify.app"
+#     "https://ai-chatbot-ri1l.onrender.com",
+#     "localhost",
+#     "127.0.0.1"
+# ]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://ai-chatbot-support.netlify.app",
+    "https://ai-chatbot-ri1l.onrender.com"
 ]
 
 

@@ -1,59 +1,85 @@
-/* Background Image */
+/* Background with Glassmorphism */
 .chat-container {
-  background: url("ai.jpg") no-repeat  center/cover;
+  background: url("ai.jpg") no-repeat center/cover;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
 }
 
 /* Chat Box */
 .chat-box {
   width: 90%;
   max-width: 500px;
-  height: 85vh;
-  background: #f1f1f1;
-  border-radius: 10px;
-  padding: 15px;
+  height: 70vh;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
   overflow-y: auto;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  transition: 0.5s;
+  position: relative; /* Ensures the icons stay inside the box */
 }
 
-/* Messages */
+/* Stylish Messages */
 .message {
-  padding: 10px;
-  margin: 5px;
-  border-radius: 8px;
+  padding: 12px 18px;
+  margin: 10px;
+  border-radius: 18px;
   max-width: 80%;
   word-wrap: break-word;
+  font-size: 14px;
+  transition: transform 0.3s;
+  position: relative; /* For speech icon placement */
 }
 
+/* User Message */
 .message.user {
-  background-color: #297fdb;
+  background: linear-gradient(135deg, #007bff, #00d4ff);
   color: white;
   align-self: flex-end;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5);
 }
 
+/* Bot Message */
 .message.bot {
-  background-color: #f1f1f1;
+  background: linear-gradient(135deg, #f1f1f1, #e2e2e2);
   color: black;
   align-self: flex-start;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Bot Typing Indicator */
+/* Speech Icon (Bot Messages Only) */
+.speech-icon {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 18px;
+  color: #007bff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.speech-icon:hover {
+  color: #0056b3;
+  transform: scale(1.2);
+}
+
+/* Typing Indicator */
 .typing-indicator {
   font-size: 14px;
   color: #949090;
   font-style: italic;
-  margin-left: 10px;
-  animation: blink 1s infinite;
+  animation: blink 1.2s infinite;
 }
 
 @keyframes blink {
-  0% { opacity: 0.3; }
+  0% { opacity: 0.4; }
   50% { opacity: 1; }
-  100% { opacity: 0.3; }
+  100% { opacity: 0.4; }
 }
 
 /* Input Box */
@@ -61,42 +87,65 @@
   display: flex;
   width: 90%;
   max-width: 500px;
-  margin-top: 10px;
+  margin-top: 15px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.input-box input {
-  flex: 1;
-  background: #f1f1f1;
-  padding: 10px;
+/* Input Field */
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 40px 12px 40px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   outline: none;
+  font-size: 14px;
 }
 
-.input-box button {
-  padding: 10px 15px;
-  border: none;
-  background: #11d479;
-  color: white;
-  border-radius: 5px;
+/* Mic and Download Icons */
+.mic-icon, .download-icon {
+  position: absolute;
+  color: #007bff;
+  font-size: 20px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.input-box button:hover {
-  background: #0056b3;
+.mic-icon {
+  left: 10px;
 }
 
-/* Responsive Adjustments */
+.download-icon {
+  right: 10px;
+}
+
+.download-icon:hover {
+  color: #0056b3;
+  transform: scale(1.2);
+}
+
+/* Buttons */
+.input-box button {
+  padding: 12px 20px;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Responsive */
 @media (max-width: 600px) {
   .chat-box {
     height: 70vh;
-  }
-
-  .input-box {
-    flex-direction: column;
-  }
-
-  .input-box input {
-    margin-bottom: 10px;
   }
 }

@@ -13,7 +13,7 @@ def chatbot_response(request):
     if not user_message:
         return Response({"error": "No message provided"}, status=400)
 
-    model = genai.GenerativeModel("gemini-1.5-pro")  # Change model name
+    model = genai.GenerativeModel("gemini-2.5-flash")  # Change model name
 
     response = model.generate_content(user_message)
     bot_message = response.text
